@@ -14,7 +14,6 @@ export default {
 <style scoped>
 button {
   cursor: pointer;
-  font-size: 24px;
   width: 100%;
   border: none;
 }

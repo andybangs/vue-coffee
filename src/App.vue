@@ -27,23 +27,19 @@
         v-on:dec="dec('ratio')" 
         v-on:update="update('ratio', $event)" 
       />
-      <!-- placeholder for timer -->
-      <variable 
-        title="timer" 
-        :backgroundColor="colors.white" 
-        :value="0" 
-      />
+      <timer />
     </div>
   </div>
 </template>
 
 <script>
 import { colors } from './constants';
+import Timer from './components/Timer';
 import Variable from './components/Variable';
 
 export default {
   name: 'app',
-  components: { Variable },
+  components: { Timer, Variable },
   data() {
     return {
       colors,
