@@ -2,26 +2,28 @@
   <vc-panel :title="title" :backgroundColor="backgroundColor">
     <div class="container">
       <div class="row">
-        <input 
-          type="text" 
-          :value="value" 
-          v-on:input="update($event.target.value)" 
-          :style="{ backgroundColor }" 
+        <vc-input
+          :value="value"
+          :prefix="prefix"
+          :backgroundColor="backgroundColor"
+          :isValidInput="isValidInput"
+          :coerceValue="coerceValue"
+          @update="update"
         />
       </div>
       <div class="row" />
       <div class="row">
         <div class="buttons-cont">
-          <vc-button 
-            :backgroundColor="colors.charcoalDark" 
-            :color="backgroundColor" 
+          <vc-button
+            :backgroundColor="colors.charcoalDark"
+            :color="backgroundColor"
             :onClick="dec"
           >
             –
           </vc-button>
-          <vc-button 
-            :backgroundColor="colors.charcoalLight" 
-            :color="backgroundColor" 
+          <vc-button
+            :backgroundColor="colors.charcoalLight"
+            :color="backgroundColor"
             :onClick="inc"
           >
             +
@@ -34,13 +36,22 @@
 
 <script>
 import VcButton from './VcButton';
+import VcInput from './VcInput';
 import VcPanel from './VcPanel';
 import { colors } from '../constants';
 
 export default {
   name: 'variable',
-  components: { VcButton, VcPanel },
-  props: ['title', 'backgroundColor', 'content', 'value'],
+  components: { VcButton, VcInput, VcPanel },
+  props: [
+    'title',
+    'prefix',
+    'backgroundColor',
+    'content',
+    'value',
+    'isValidInput',
+    'coerceValue'
+  ],
   data() {
     return {
       colors

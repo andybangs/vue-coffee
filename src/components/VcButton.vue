@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click="onClick" :style="{ backgroundColor, color }">
+  <button @click="onClick" :style="{ backgroundColor, color }">
     <slot />
   </button>
 </template>
