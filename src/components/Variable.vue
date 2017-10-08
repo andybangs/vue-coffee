@@ -43,15 +43,31 @@ import { colors } from '../constants';
 export default {
   name: 'variable',
   components: { VcButton, VcInput, VcPanel },
-  props: [
-    'title',
-    'prefix',
-    'backgroundColor',
-    'content',
-    'value',
-    'isValidInput',
-    'coerceValue'
-  ],
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    prefix: {
+      type: String
+    },
+    value: {
+      type: String,
+      required: true
+    },
+    isValidInput: {
+      type: Function,
+      default: () => true
+    },
+    coerceValue: {
+      type: Function,
+      default: x => x
+    },
+    backgroundColor: {
+      type: String,
+      default: colors.white
+    }
+  },
   data() {
     return {
       colors

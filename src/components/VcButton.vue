@@ -5,9 +5,24 @@
 </template>
 
 <script>
+import { colors } from '../constants';
+
 export default {
   name: 'vc-button',
-  props: ['backgroundColor', 'color', 'onClick']
+  props: {
+    onClick: {
+      type: Function,
+      required: true
+    },
+    backgroundColor: {
+      type: String,
+      default: colors.charcoal
+    },
+    color: {
+      type: String,
+      default: colors.white
+    }
+  }
 };
 </script>
 

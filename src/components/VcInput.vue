@@ -12,7 +12,26 @@
 
 export default {
   name: 'vc-input',
-  props: ['backgroundColor', 'value', 'prefix', 'isValidInput', 'coerceValue'],
+  props: {
+    prefix: {
+      type: String
+    },
+    value: {
+      type: String,
+      required: true
+    },
+    isValidInput: {
+      type: Function,
+      default: () => true
+    },
+    coerceValue: {
+      type: Function,
+      default: x => x
+    },
+    backgroundColor: {
+      type: String
+    }
+  },
   methods: {
     update(newVal, oldVal) {
       if (!this.isValidInput(newVal)) {

@@ -12,7 +12,15 @@
 <script>
 export default {
   name: 'vc-panel',
-  props: ['title', 'backgroundColor', 'content']
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    backgroundColor: {
+      type: String
+    }
+  }
 };
 </script>
 
